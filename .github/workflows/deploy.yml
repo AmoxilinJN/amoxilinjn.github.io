@@ -36,5 +36,4 @@ jobs:
             personal_token: ${{ secrets.BLOG_ACTION_TOKEN }}
             publish_branch: gh-pages
             publish_dir: ./public
-            destination_dir: ${GITHUB_WORKSPACE}/built-site
             commit_message: auto deploy
