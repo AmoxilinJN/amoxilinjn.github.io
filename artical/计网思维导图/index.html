@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>计网思维导图 | My New Hugo Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用——表示了
+
+OSI protocol stack(协议栈)
+Application
+HTTP
+请求、响应
+cookie
+Web缓存器(代理服务器)
+CDN
+SMTP、POP3、IMAP
+FTP
+控制连接
+数据连接
+DNS(UDP)
+层次结构
+根DNS服务器
+TLD(顶级域)服务器
+权威DNS服务器
+本地DNS服务器
+DNS缓存
+RR(资源记录)
+(Name,Value,Type,TTL)
+P2P
+最稀缺优先(rarest first)
+一报还一报(tit-for-tat)
+DHT(分布式散列表)[(键，值)对]
+环形DHT
+对等方扰动
+NFS(UDP)
+socket(套接字)
+Transport
+FSM(有限状态机)
+TCP
+SYN、SYN/ACK、ACK
+估算RTT
+SampleRTT
+EstimatedRTT(EWMA，指数加权移动平均)
+DevRTT(RTT偏差)
+拥塞控制
+GBN协议(滑动窗口协议)
+SR协议(选择重传协议)
+快速重传
+TFRC(TCP友好速率控制)
+TCP拥塞控制算法
+慢启动
+cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道
+AIMD(加性增，乘性减)
+拥塞避免
+快速恢复
+TCP Tahoe
+TCP Reno
+公平性
+Reno算法
+Vegas算法
+CUBIC算法
+AIMD的公平性收敛
+UDP
+DCCP(数据报拥塞控制协议)
+SCTP(流控制传输协议)
+Network
+IP
+数据报格式
+IPv4编址
+CIDR(无类别域间路由选择)
+DHCP(动态主机配置协议)[即插即用协议]
+DHCP discover
+DHCP offer
+DHCP request
+DHCP ACK
+NAT(网络地址转换)
+基础型NAT
+静态NAT
+动态NAT
+NAPT
+完全锥型NAT
+受限锥型NAT
+端口受限NAT
+对称型NAT
+NAT打洞/穿透
+建立UDP隧道
+注册信息包
+直接发送UDP报文
+IPv6
+ICMP
+ping
+traceroute
+路由选择算法
+单播
+根据全局或分散分类
+全局式路由选择算法——LS(链路状态)算法——Dijkstra算法
+分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转
+根据静态或动态分类
+静态路由选择算法
+动态路由选择算法
+根据负载敏感度分类
+负载敏感算法
+负载迟钝算法(RIP、OSPF、BGP)
+多播
+广播路由选择算法(broadcast routing)
+无控制洪泛(flooding)
+受控洪泛 之 序号控制洪泛
+受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播)
+STP(生成树协议)
+组播路由选择算法(multicast routing)
+IGMP
+DVMRP(距离向量组播路由选择协议)
+AS
+热土豆路由选择(hot potato routing)
+RIP(AS内部)[UDP]
+OSPF(AS内部)
+IS-IS(AS内部)
+BGP4(AS之间)
+Data Link
+差错检测、纠正
+FEC(向前纠错)
+奇偶校验
+checksum(检验和)
+CRC(循环冗余检测)
+多路访问协议
+信道划分协议
+TDM(时分多路复用)
+FDM(频分多路复用)
+CDMA(码分多址)
+随机接入协议(MAC协议)
+ALOHA
+CSMA、CSMA/CD
+轮流协议
+轮询协议
+令牌传递协议
+交换局域网
+ARP
+MAC地址(局域网地址、以太网地址、物理地址)
+NIC唯一标识符
+Ethernet(以太网技术)
+10BASE-T、100BASE-T、1000BASE-T、10GBASE-T
+以太网帧、使用CRC校验
+链路层交换机(即插即用设备)
+过滤、转发
+自学习
+交换机毒化
+VLAN(虚拟局域网)
+链路虚拟化
+MPLS(多协议标签交换)
+VPN
+Physical">
+<meta name="author" content="">
+<link rel="canonical" href="https://amoxilinjn.github.io/blog/artical/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://amoxilinjn.github.io/blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://amoxilinjn.github.io/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://amoxilinjn.github.io/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://amoxilinjn.github.io/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://amoxilinjn.github.io/blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://amoxilinjn.github.io/blog/artical/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://amoxilinjn.github.io/blog/artical/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="计网思维导图">
+  <meta property="og:description" content=" 由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用——表示了
+OSI protocol stack(协议栈) Application HTTP 请求、响应 cookie Web缓存器(代理服务器) CDN SMTP、POP3、IMAP FTP 控制连接 数据连接 DNS(UDP) 层次结构 根DNS服务器 TLD(顶级域)服务器 权威DNS服务器 本地DNS服务器 DNS缓存 RR(资源记录) (Name,Value,Type,TTL) P2P 最稀缺优先(rarest first) 一报还一报(tit-for-tat) DHT(分布式散列表)[(键，值)对] 环形DHT 对等方扰动 NFS(UDP) socket(套接字) Transport FSM(有限状态机) TCP SYN、SYN/ACK、ACK 估算RTT SampleRTT EstimatedRTT(EWMA，指数加权移动平均) DevRTT(RTT偏差) 拥塞控制 GBN协议(滑动窗口协议) SR协议(选择重传协议) 快速重传 TFRC(TCP友好速率控制) TCP拥塞控制算法 慢启动 cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道 AIMD(加性增，乘性减) 拥塞避免 快速恢复 TCP Tahoe TCP Reno 公平性 Reno算法 Vegas算法 CUBIC算法 AIMD的公平性收敛 UDP DCCP(数据报拥塞控制协议) SCTP(流控制传输协议) Network IP 数据报格式 IPv4编址 CIDR(无类别域间路由选择) DHCP(动态主机配置协议)[即插即用协议] DHCP discover DHCP offer DHCP request DHCP ACK NAT(网络地址转换) 基础型NAT 静态NAT 动态NAT NAPT 完全锥型NAT 受限锥型NAT 端口受限NAT 对称型NAT NAT打洞/穿透 建立UDP隧道 注册信息包 直接发送UDP报文 IPv6 ICMP ping traceroute 路由选择算法 单播 根据全局或分散分类 全局式路由选择算法——LS(链路状态)算法——Dijkstra算法 分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转 根据静态或动态分类 静态路由选择算法 动态路由选择算法 根据负载敏感度分类 负载敏感算法 负载迟钝算法(RIP、OSPF、BGP) 多播 广播路由选择算法(broadcast routing) 无控制洪泛(flooding) 受控洪泛 之 序号控制洪泛 受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播) STP(生成树协议) 组播路由选择算法(multicast routing) IGMP DVMRP(距离向量组播路由选择协议) AS 热土豆路由选择(hot potato routing) RIP(AS内部)[UDP] OSPF(AS内部) IS-IS(AS内部) BGP4(AS之间) Data Link 差错检测、纠正 FEC(向前纠错) 奇偶校验 checksum(检验和) CRC(循环冗余检测) 多路访问协议 信道划分协议 TDM(时分多路复用) FDM(频分多路复用) CDMA(码分多址) 随机接入协议(MAC协议) ALOHA CSMA、CSMA/CD 轮流协议 轮询协议 令牌传递协议 交换局域网 ARP MAC地址(局域网地址、以太网地址、物理地址) NIC唯一标识符 Ethernet(以太网技术) 10BASE-T、100BASE-T、1000BASE-T、10GBASE-T 以太网帧、使用CRC校验 链路层交换机(即插即用设备) 过滤、转发 自学习 交换机毒化 VLAN(虚拟局域网) 链路虚拟化 MPLS(多协议标签交换) VPN Physical">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="artical">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计网思维导图">
+<meta name="twitter:description" content="
+由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用——表示了
+
+OSI protocol stack(协议栈)
+Application
+HTTP
+请求、响应
+cookie
+Web缓存器(代理服务器)
+CDN
+SMTP、POP3、IMAP
+FTP
+控制连接
+数据连接
+DNS(UDP)
+层次结构
+根DNS服务器
+TLD(顶级域)服务器
+权威DNS服务器
+本地DNS服务器
+DNS缓存
+RR(资源记录)
+(Name,Value,Type,TTL)
+P2P
+最稀缺优先(rarest first)
+一报还一报(tit-for-tat)
+DHT(分布式散列表)[(键，值)对]
+环形DHT
+对等方扰动
+NFS(UDP)
+socket(套接字)
+Transport
+FSM(有限状态机)
+TCP
+SYN、SYN/ACK、ACK
+估算RTT
+SampleRTT
+EstimatedRTT(EWMA，指数加权移动平均)
+DevRTT(RTT偏差)
+拥塞控制
+GBN协议(滑动窗口协议)
+SR协议(选择重传协议)
+快速重传
+TFRC(TCP友好速率控制)
+TCP拥塞控制算法
+慢启动
+cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道
+AIMD(加性增，乘性减)
+拥塞避免
+快速恢复
+TCP Tahoe
+TCP Reno
+公平性
+Reno算法
+Vegas算法
+CUBIC算法
+AIMD的公平性收敛
+UDP
+DCCP(数据报拥塞控制协议)
+SCTP(流控制传输协议)
+Network
+IP
+数据报格式
+IPv4编址
+CIDR(无类别域间路由选择)
+DHCP(动态主机配置协议)[即插即用协议]
+DHCP discover
+DHCP offer
+DHCP request
+DHCP ACK
+NAT(网络地址转换)
+基础型NAT
+静态NAT
+动态NAT
+NAPT
+完全锥型NAT
+受限锥型NAT
+端口受限NAT
+对称型NAT
+NAT打洞/穿透
+建立UDP隧道
+注册信息包
+直接发送UDP报文
+IPv6
+ICMP
+ping
+traceroute
+路由选择算法
+单播
+根据全局或分散分类
+全局式路由选择算法——LS(链路状态)算法——Dijkstra算法
+分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转
+根据静态或动态分类
+静态路由选择算法
+动态路由选择算法
+根据负载敏感度分类
+负载敏感算法
+负载迟钝算法(RIP、OSPF、BGP)
+多播
+广播路由选择算法(broadcast routing)
+无控制洪泛(flooding)
+受控洪泛 之 序号控制洪泛
+受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播)
+STP(生成树协议)
+组播路由选择算法(multicast routing)
+IGMP
+DVMRP(距离向量组播路由选择协议)
+AS
+热土豆路由选择(hot potato routing)
+RIP(AS内部)[UDP]
+OSPF(AS内部)
+IS-IS(AS内部)
+BGP4(AS之间)
+Data Link
+差错检测、纠正
+FEC(向前纠错)
+奇偶校验
+checksum(检验和)
+CRC(循环冗余检测)
+多路访问协议
+信道划分协议
+TDM(时分多路复用)
+FDM(频分多路复用)
+CDMA(码分多址)
+随机接入协议(MAC协议)
+ALOHA
+CSMA、CSMA/CD
+轮流协议
+轮询协议
+令牌传递协议
+交换局域网
+ARP
+MAC地址(局域网地址、以太网地址、物理地址)
+NIC唯一标识符
+Ethernet(以太网技术)
+10BASE-T、100BASE-T、1000BASE-T、10GBASE-T
+以太网帧、使用CRC校验
+链路层交换机(即插即用设备)
+过滤、转发
+自学习
+交换机毒化
+VLAN(虚拟局域网)
+链路虚拟化
+MPLS(多协议标签交换)
+VPN
+Physical">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Articals",
+      "item": "https://amoxilinjn.github.io/blog/artical/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "计网思维导图",
+      "item": "https://amoxilinjn.github.io/blog/artical/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "计网思维导图",
+  "name": "计网思维导图",
+  "description": " 由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用——表示了\nOSI protocol stack(协议栈) Application HTTP 请求、响应 cookie Web缓存器(代理服务器) CDN SMTP、POP3、IMAP FTP 控制连接 数据连接 DNS(UDP) 层次结构 根DNS服务器 TLD(顶级域)服务器 权威DNS服务器 本地DNS服务器 DNS缓存 RR(资源记录) (Name,Value,Type,TTL) P2P 最稀缺优先(rarest first) 一报还一报(tit-for-tat) DHT(分布式散列表)[(键，值)对] 环形DHT 对等方扰动 NFS(UDP) socket(套接字) Transport FSM(有限状态机) TCP SYN、SYN/ACK、ACK 估算RTT SampleRTT EstimatedRTT(EWMA，指数加权移动平均) DevRTT(RTT偏差) 拥塞控制 GBN协议(滑动窗口协议) SR协议(选择重传协议) 快速重传 TFRC(TCP友好速率控制) TCP拥塞控制算法 慢启动 cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道 AIMD(加性增，乘性减) 拥塞避免 快速恢复 TCP Tahoe TCP Reno 公平性 Reno算法 Vegas算法 CUBIC算法 AIMD的公平性收敛 UDP DCCP(数据报拥塞控制协议) SCTP(流控制传输协议) Network IP 数据报格式 IPv4编址 CIDR(无类别域间路由选择) DHCP(动态主机配置协议)[即插即用协议] DHCP discover DHCP offer DHCP request DHCP ACK NAT(网络地址转换) 基础型NAT 静态NAT 动态NAT NAPT 完全锥型NAT 受限锥型NAT 端口受限NAT 对称型NAT NAT打洞/穿透 建立UDP隧道 注册信息包 直接发送UDP报文 IPv6 ICMP ping traceroute 路由选择算法 单播 根据全局或分散分类 全局式路由选择算法——LS(链路状态)算法——Dijkstra算法 分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转 根据静态或动态分类 静态路由选择算法 动态路由选择算法 根据负载敏感度分类 负载敏感算法 负载迟钝算法(RIP、OSPF、BGP) 多播 广播路由选择算法(broadcast routing) 无控制洪泛(flooding) 受控洪泛 之 序号控制洪泛 受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播) STP(生成树协议) 组播路由选择算法(multicast routing) IGMP DVMRP(距离向量组播路由选择协议) AS 热土豆路由选择(hot potato routing) RIP(AS内部)[UDP] OSPF(AS内部) IS-IS(AS内部) BGP4(AS之间) Data Link 差错检测、纠正 FEC(向前纠错) 奇偶校验 checksum(检验和) CRC(循环冗余检测) 多路访问协议 信道划分协议 TDM(时分多路复用) FDM(频分多路复用) CDMA(码分多址) 随机接入协议(MAC协议) ALOHA CSMA、CSMA/CD 轮流协议 轮询协议 令牌传递协议 交换局域网 ARP MAC地址(局域网地址、以太网地址、物理地址) NIC唯一标识符 Ethernet(以太网技术) 10BASE-T、100BASE-T、1000BASE-T、10GBASE-T 以太网帧、使用CRC校验 链路层交换机(即插即用设备) 过滤、转发 自学习 交换机毒化 VLAN(虚拟局域网) 链路虚拟化 MPLS(多协议标签交换) VPN Physical",
+  "keywords": [
+    
+  ],
+  "articleBody": " 由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用——表示了\nOSI protocol stack(协议栈) Application HTTP 请求、响应 cookie Web缓存器(代理服务器) CDN SMTP、POP3、IMAP FTP 控制连接 数据连接 DNS(UDP) 层次结构 根DNS服务器 TLD(顶级域)服务器 权威DNS服务器 本地DNS服务器 DNS缓存 RR(资源记录) (Name,Value,Type,TTL) P2P 最稀缺优先(rarest first) 一报还一报(tit-for-tat) DHT(分布式散列表)[(键，值)对] 环形DHT 对等方扰动 NFS(UDP) socket(套接字) Transport FSM(有限状态机) TCP SYN、SYN/ACK、ACK 估算RTT SampleRTT EstimatedRTT(EWMA，指数加权移动平均) DevRTT(RTT偏差) 拥塞控制 GBN协议(滑动窗口协议) SR协议(选择重传协议) 快速重传 TFRC(TCP友好速率控制) TCP拥塞控制算法 慢启动 cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道 AIMD(加性增，乘性减) 拥塞避免 快速恢复 TCP Tahoe TCP Reno 公平性 Reno算法 Vegas算法 CUBIC算法 AIMD的公平性收敛 UDP DCCP(数据报拥塞控制协议) SCTP(流控制传输协议) Network IP 数据报格式 IPv4编址 CIDR(无类别域间路由选择) DHCP(动态主机配置协议)[即插即用协议] DHCP discover DHCP offer DHCP request DHCP ACK NAT(网络地址转换) 基础型NAT 静态NAT 动态NAT NAPT 完全锥型NAT 受限锥型NAT 端口受限NAT 对称型NAT NAT打洞/穿透 建立UDP隧道 注册信息包 直接发送UDP报文 IPv6 ICMP ping traceroute 路由选择算法 单播 根据全局或分散分类 全局式路由选择算法——LS(链路状态)算法——Dijkstra算法 分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转 根据静态或动态分类 静态路由选择算法 动态路由选择算法 根据负载敏感度分类 负载敏感算法 负载迟钝算法(RIP、OSPF、BGP) 多播 广播路由选择算法(broadcast routing) 无控制洪泛(flooding) 受控洪泛 之 序号控制洪泛 受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播) STP(生成树协议) 组播路由选择算法(multicast routing) IGMP DVMRP(距离向量组播路由选择协议) AS 热土豆路由选择(hot potato routing) RIP(AS内部)[UDP] OSPF(AS内部) IS-IS(AS内部) BGP4(AS之间) Data Link 差错检测、纠正 FEC(向前纠错) 奇偶校验 checksum(检验和) CRC(循环冗余检测) 多路访问协议 信道划分协议 TDM(时分多路复用) FDM(频分多路复用) CDMA(码分多址) 随机接入协议(MAC协议) ALOHA CSMA、CSMA/CD 轮流协议 轮询协议 令牌传递协议 交换局域网 ARP MAC地址(局域网地址、以太网地址、物理地址) NIC唯一标识符 Ethernet(以太网技术) 10BASE-T、100BASE-T、1000BASE-T、10GBASE-T 以太网帧、使用CRC校验 链路层交换机(即插即用设备) 过滤、转发 自学习 交换机毒化 VLAN(虚拟局域网) 链路虚拟化 MPLS(多协议标签交换) VPN Physical ",
+  "wordCount" : "162",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://amoxilinjn.github.io/blog/artical/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "My New Hugo Site",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://amoxilinjn.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://amoxilinjn.github.io/blog/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      计网思维导图
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>由于markdown只有六级标题，因此思维导图只能展开六层，所以有些最底层我就直接略过或用<code>——</code>表示了</p></blockquote>
+<p><img alt="计网思维导图" loading="lazy" src="./../picture/%E8%AE%A1%E7%BD%91%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.svg"></p>
+<h1 id="osi-protocol-stack协议栈">OSI protocol stack(协议栈)<a hidden class="anchor" aria-hidden="true" href="#osi-protocol-stack协议栈">#</a></h1>
+<h2 id="application">Application<a hidden class="anchor" aria-hidden="true" href="#application">#</a></h2>
+<h3 id="http">HTTP<a hidden class="anchor" aria-hidden="true" href="#http">#</a></h3>
+<h4 id="请求响应">请求、响应<a hidden class="anchor" aria-hidden="true" href="#请求响应">#</a></h4>
+<h4 id="cookie">cookie<a hidden class="anchor" aria-hidden="true" href="#cookie">#</a></h4>
+<h4 id="web缓存器代理服务器">Web缓存器(代理服务器)<a hidden class="anchor" aria-hidden="true" href="#web缓存器代理服务器">#</a></h4>
+<h4 id="cdn">CDN<a hidden class="anchor" aria-hidden="true" href="#cdn">#</a></h4>
+<h3 id="smtppop3imap">SMTP、POP3、IMAP<a hidden class="anchor" aria-hidden="true" href="#smtppop3imap">#</a></h3>
+<h3 id="ftp">FTP<a hidden class="anchor" aria-hidden="true" href="#ftp">#</a></h3>
+<h4 id="控制连接">控制连接<a hidden class="anchor" aria-hidden="true" href="#控制连接">#</a></h4>
+<h4 id="数据连接">数据连接<a hidden class="anchor" aria-hidden="true" href="#数据连接">#</a></h4>
+<h3 id="dnsudp">DNS(UDP)<a hidden class="anchor" aria-hidden="true" href="#dnsudp">#</a></h3>
+<h4 id="层次结构">层次结构<a hidden class="anchor" aria-hidden="true" href="#层次结构">#</a></h4>
+<h5 id="根dns服务器">根DNS服务器<a hidden class="anchor" aria-hidden="true" href="#根dns服务器">#</a></h5>
+<h5 id="tld顶级域服务器">TLD(顶级域)服务器<a hidden class="anchor" aria-hidden="true" href="#tld顶级域服务器">#</a></h5>
+<h5 id="权威dns服务器">权威DNS服务器<a hidden class="anchor" aria-hidden="true" href="#权威dns服务器">#</a></h5>
+<h5 id="本地dns服务器">本地DNS服务器<a hidden class="anchor" aria-hidden="true" href="#本地dns服务器">#</a></h5>
+<h4 id="dns缓存">DNS缓存<a hidden class="anchor" aria-hidden="true" href="#dns缓存">#</a></h4>
+<h5 id="rr资源记录">RR(资源记录)<a hidden class="anchor" aria-hidden="true" href="#rr资源记录">#</a></h5>
+<h6 id="namevaluetypettl">(Name,Value,Type,TTL)<a hidden class="anchor" aria-hidden="true" href="#namevaluetypettl">#</a></h6>
+<h3 id="p2p">P2P<a hidden class="anchor" aria-hidden="true" href="#p2p">#</a></h3>
+<h4 id="最稀缺优先rarest-first">最稀缺优先(rarest first)<a hidden class="anchor" aria-hidden="true" href="#最稀缺优先rarest-first">#</a></h4>
+<h4 id="一报还一报tit-for-tat">一报还一报(tit-for-tat)<a hidden class="anchor" aria-hidden="true" href="#一报还一报tit-for-tat">#</a></h4>
+<h4 id="dht分布式散列表键值对">DHT(分布式散列表)[(键，值)对]<a hidden class="anchor" aria-hidden="true" href="#dht分布式散列表键值对">#</a></h4>
+<h5 id="环形dht">环形DHT<a hidden class="anchor" aria-hidden="true" href="#环形dht">#</a></h5>
+<h5 id="对等方扰动">对等方扰动<a hidden class="anchor" aria-hidden="true" href="#对等方扰动">#</a></h5>
+<h3 id="nfsudp">NFS(UDP)<a hidden class="anchor" aria-hidden="true" href="#nfsudp">#</a></h3>
+<h3 id="socket套接字">socket(套接字)<a hidden class="anchor" aria-hidden="true" href="#socket套接字">#</a></h3>
+<h2 id="transport">Transport<a hidden class="anchor" aria-hidden="true" href="#transport">#</a></h2>
+<h3 id="fsm有限状态机">FSM(有限状态机)<a hidden class="anchor" aria-hidden="true" href="#fsm有限状态机">#</a></h3>
+<h3 id="tcp">TCP<a hidden class="anchor" aria-hidden="true" href="#tcp">#</a></h3>
+<h4 id="synsynackack">SYN、SYN/ACK、ACK<a hidden class="anchor" aria-hidden="true" href="#synsynackack">#</a></h4>
+<h4 id="估算rtt">估算RTT<a hidden class="anchor" aria-hidden="true" href="#估算rtt">#</a></h4>
+<h5 id="samplertt">SampleRTT<a hidden class="anchor" aria-hidden="true" href="#samplertt">#</a></h5>
+<h5 id="estimatedrttewma指数加权移动平均">EstimatedRTT(EWMA，指数加权移动平均)<a hidden class="anchor" aria-hidden="true" href="#estimatedrttewma指数加权移动平均">#</a></h5>
+<h5 id="devrttrtt偏差">DevRTT(RTT偏差)<a hidden class="anchor" aria-hidden="true" href="#devrttrtt偏差">#</a></h5>
+<h4 id="拥塞控制">拥塞控制<a hidden class="anchor" aria-hidden="true" href="#拥塞控制">#</a></h4>
+<h5 id="gbn协议滑动窗口协议">GBN协议(滑动窗口协议)<a hidden class="anchor" aria-hidden="true" href="#gbn协议滑动窗口协议">#</a></h5>
+<h5 id="sr协议选择重传协议">SR协议(选择重传协议)<a hidden class="anchor" aria-hidden="true" href="#sr协议选择重传协议">#</a></h5>
+<h5 id="快速重传">快速重传<a hidden class="anchor" aria-hidden="true" href="#快速重传">#</a></h5>
+<h5 id="tfrctcp友好速率控制">TFRC(TCP友好速率控制)<a hidden class="anchor" aria-hidden="true" href="#tfrctcp友好速率控制">#</a></h5>
+<h4 id="tcp拥塞控制算法">TCP拥塞控制算法<a hidden class="anchor" aria-hidden="true" href="#tcp拥塞控制算法">#</a></h4>
+<h5 id="慢启动">慢启动<a hidden class="anchor" aria-hidden="true" href="#慢启动">#</a></h5>
+<h6 id="cwnd拥塞窗口ssthresh慢启动阈值safe区域dangerous区域tcp管道">cwnd(拥塞窗口)、ssthresh(慢启动阈值)、safe区域、dangerous区域、TCP管道<a hidden class="anchor" aria-hidden="true" href="#cwnd拥塞窗口ssthresh慢启动阈值safe区域dangerous区域tcp管道">#</a></h6>
+<h6 id="aimd加性增乘性减">AIMD(加性增，乘性减)<a hidden class="anchor" aria-hidden="true" href="#aimd加性增乘性减">#</a></h6>
+<h5 id="拥塞避免">拥塞避免<a hidden class="anchor" aria-hidden="true" href="#拥塞避免">#</a></h5>
+<h5 id="快速恢复">快速恢复<a hidden class="anchor" aria-hidden="true" href="#快速恢复">#</a></h5>
+<h6 id="tcp-tahoe">TCP Tahoe<a hidden class="anchor" aria-hidden="true" href="#tcp-tahoe">#</a></h6>
+<h6 id="tcp-reno">TCP Reno<a hidden class="anchor" aria-hidden="true" href="#tcp-reno">#</a></h6>
+<h4 id="公平性">公平性<a hidden class="anchor" aria-hidden="true" href="#公平性">#</a></h4>
+<h5 id="reno算法">Reno算法<a hidden class="anchor" aria-hidden="true" href="#reno算法">#</a></h5>
+<h5 id="vegas算法">Vegas算法<a hidden class="anchor" aria-hidden="true" href="#vegas算法">#</a></h5>
+<h5 id="cubic算法">CUBIC算法<a hidden class="anchor" aria-hidden="true" href="#cubic算法">#</a></h5>
+<h5 id="aimd的公平性收敛">AIMD的公平性收敛<a hidden class="anchor" aria-hidden="true" href="#aimd的公平性收敛">#</a></h5>
+<h3 id="udp">UDP<a hidden class="anchor" aria-hidden="true" href="#udp">#</a></h3>
+<h3 id="dccp数据报拥塞控制协议">DCCP(数据报拥塞控制协议)<a hidden class="anchor" aria-hidden="true" href="#dccp数据报拥塞控制协议">#</a></h3>
+<h3 id="sctp流控制传输协议">SCTP(流控制传输协议)<a hidden class="anchor" aria-hidden="true" href="#sctp流控制传输协议">#</a></h3>
+<h2 id="network">Network<a hidden class="anchor" aria-hidden="true" href="#network">#</a></h2>
+<h3 id="ip">IP<a hidden class="anchor" aria-hidden="true" href="#ip">#</a></h3>
+<h4 id="数据报格式">数据报格式<a hidden class="anchor" aria-hidden="true" href="#数据报格式">#</a></h4>
+<h4 id="ipv4编址">IPv4编址<a hidden class="anchor" aria-hidden="true" href="#ipv4编址">#</a></h4>
+<h5 id="cidr无类别域间路由选择">CIDR(无类别域间路由选择)<a hidden class="anchor" aria-hidden="true" href="#cidr无类别域间路由选择">#</a></h5>
+<h5 id="dhcp动态主机配置协议即插即用协议">DHCP(动态主机配置协议)[即插即用协议]<a hidden class="anchor" aria-hidden="true" href="#dhcp动态主机配置协议即插即用协议">#</a></h5>
+<h6 id="dhcp-discover">DHCP discover<a hidden class="anchor" aria-hidden="true" href="#dhcp-discover">#</a></h6>
+<h6 id="dhcp-offer">DHCP offer<a hidden class="anchor" aria-hidden="true" href="#dhcp-offer">#</a></h6>
+<h6 id="dhcp-request">DHCP request<a hidden class="anchor" aria-hidden="true" href="#dhcp-request">#</a></h6>
+<h6 id="dhcp-ack">DHCP ACK<a hidden class="anchor" aria-hidden="true" href="#dhcp-ack">#</a></h6>
+<h4 id="nat网络地址转换">NAT(网络地址转换)<a hidden class="anchor" aria-hidden="true" href="#nat网络地址转换">#</a></h4>
+<h5 id="基础型nat">基础型NAT<a hidden class="anchor" aria-hidden="true" href="#基础型nat">#</a></h5>
+<h6 id="静态nat">静态NAT<a hidden class="anchor" aria-hidden="true" href="#静态nat">#</a></h6>
+<h6 id="动态nat">动态NAT<a hidden class="anchor" aria-hidden="true" href="#动态nat">#</a></h6>
+<h5 id="napt">NAPT<a hidden class="anchor" aria-hidden="true" href="#napt">#</a></h5>
+<h6 id="完全锥型nat">完全锥型NAT<a hidden class="anchor" aria-hidden="true" href="#完全锥型nat">#</a></h6>
+<h6 id="受限锥型nat">受限锥型NAT<a hidden class="anchor" aria-hidden="true" href="#受限锥型nat">#</a></h6>
+<h6 id="端口受限nat">端口受限NAT<a hidden class="anchor" aria-hidden="true" href="#端口受限nat">#</a></h6>
+<h6 id="对称型nat">对称型NAT<a hidden class="anchor" aria-hidden="true" href="#对称型nat">#</a></h6>
+<h5 id="nat打洞穿透">NAT打洞/穿透<a hidden class="anchor" aria-hidden="true" href="#nat打洞穿透">#</a></h5>
+<h6 id="建立udp隧道">建立UDP隧道<a hidden class="anchor" aria-hidden="true" href="#建立udp隧道">#</a></h6>
+<h6 id="注册信息包">注册信息包<a hidden class="anchor" aria-hidden="true" href="#注册信息包">#</a></h6>
+<h6 id="直接发送udp报文">直接发送UDP报文<a hidden class="anchor" aria-hidden="true" href="#直接发送udp报文">#</a></h6>
+<h4 id="ipv6">IPv6<a hidden class="anchor" aria-hidden="true" href="#ipv6">#</a></h4>
+<h3 id="icmp">ICMP<a hidden class="anchor" aria-hidden="true" href="#icmp">#</a></h3>
+<h4 id="ping">ping<a hidden class="anchor" aria-hidden="true" href="#ping">#</a></h4>
+<h4 id="traceroute">traceroute<a hidden class="anchor" aria-hidden="true" href="#traceroute">#</a></h4>
+<h3 id="路由选择算法">路由选择算法<a hidden class="anchor" aria-hidden="true" href="#路由选择算法">#</a></h3>
+<h4 id="单播">单播<a hidden class="anchor" aria-hidden="true" href="#单播">#</a></h4>
+<h5 id="根据全局或分散分类">根据全局或分散分类<a hidden class="anchor" aria-hidden="true" href="#根据全局或分散分类">#</a></h5>
+<h6 id="全局式路由选择算法ls链路状态算法dijkstra算法">全局式路由选择算法——LS(链路状态)算法——Dijkstra算法<a hidden class="anchor" aria-hidden="true" href="#全局式路由选择算法ls链路状态算法dijkstra算法">#</a></h6>
+<h6 id="分散式路由选择算法dv距离向量算法bellman-ford算法路由选择环路和毒性逆转">分散式路由选择算法——DV(距离向量)算法——Bellman-Ford算法、路由选择环路和毒性逆转<a hidden class="anchor" aria-hidden="true" href="#分散式路由选择算法dv距离向量算法bellman-ford算法路由选择环路和毒性逆转">#</a></h6>
+<h5 id="根据静态或动态分类">根据静态或动态分类<a hidden class="anchor" aria-hidden="true" href="#根据静态或动态分类">#</a></h5>
+<h6 id="静态路由选择算法">静态路由选择算法<a hidden class="anchor" aria-hidden="true" href="#静态路由选择算法">#</a></h6>
+<h6 id="动态路由选择算法">动态路由选择算法<a hidden class="anchor" aria-hidden="true" href="#动态路由选择算法">#</a></h6>
+<h5 id="根据负载敏感度分类">根据负载敏感度分类<a hidden class="anchor" aria-hidden="true" href="#根据负载敏感度分类">#</a></h5>
+<h6 id="负载敏感算法">负载敏感算法<a hidden class="anchor" aria-hidden="true" href="#负载敏感算法">#</a></h6>
+<h6 id="负载迟钝算法ripospfbgp">负载迟钝算法(RIP、OSPF、BGP)<a hidden class="anchor" aria-hidden="true" href="#负载迟钝算法ripospfbgp">#</a></h6>
+<h4 id="多播">多播<a hidden class="anchor" aria-hidden="true" href="#多播">#</a></h4>
+<h5 id="广播路由选择算法broadcast-routing">广播路由选择算法(broadcast routing)<a hidden class="anchor" aria-hidden="true" href="#广播路由选择算法broadcast-routing">#</a></h5>
+<h6 id="无控制洪泛flooding">无控制洪泛(flooding)<a hidden class="anchor" aria-hidden="true" href="#无控制洪泛flooding">#</a></h6>
+<h6 id="受控洪泛-之-序号控制洪泛">受控洪泛 之 序号控制洪泛<a hidden class="anchor" aria-hidden="true" href="#受控洪泛-之-序号控制洪泛">#</a></h6>
+<h6 id="受控洪泛-之-rpf反向路径转发或称rpb反向路径广播">受控洪泛 之 RPF(反向路径转发)，或称RPB(反向路径广播)<a hidden class="anchor" aria-hidden="true" href="#受控洪泛-之-rpf反向路径转发或称rpb反向路径广播">#</a></h6>
+<h6 id="stp生成树协议">STP(生成树协议)<a hidden class="anchor" aria-hidden="true" href="#stp生成树协议">#</a></h6>
+<h5 id="组播路由选择算法multicast-routing">组播路由选择算法(multicast routing)<a hidden class="anchor" aria-hidden="true" href="#组播路由选择算法multicast-routing">#</a></h5>
+<h6 id="igmp">IGMP<a hidden class="anchor" aria-hidden="true" href="#igmp">#</a></h6>
+<h6 id="dvmrp距离向量组播路由选择协议">DVMRP(距离向量组播路由选择协议)<a hidden class="anchor" aria-hidden="true" href="#dvmrp距离向量组播路由选择协议">#</a></h6>
+<h3 id="as">AS<a hidden class="anchor" aria-hidden="true" href="#as">#</a></h3>
+<h4 id="热土豆路由选择hot-potato-routing">热土豆路由选择(hot potato routing)<a hidden class="anchor" aria-hidden="true" href="#热土豆路由选择hot-potato-routing">#</a></h4>
+<h4 id="ripas内部udp">RIP(AS内部)[UDP]<a hidden class="anchor" aria-hidden="true" href="#ripas内部udp">#</a></h4>
+<h4 id="ospfas内部">OSPF(AS内部)<a hidden class="anchor" aria-hidden="true" href="#ospfas内部">#</a></h4>
+<h4 id="is-isas内部">IS-IS(AS内部)<a hidden class="anchor" aria-hidden="true" href="#is-isas内部">#</a></h4>
+<h4 id="bgp4as之间">BGP4(AS之间)<a hidden class="anchor" aria-hidden="true" href="#bgp4as之间">#</a></h4>
+<h2 id="data-link">Data Link<a hidden class="anchor" aria-hidden="true" href="#data-link">#</a></h2>
+<h3 id="差错检测纠正">差错检测、纠正<a hidden class="anchor" aria-hidden="true" href="#差错检测纠正">#</a></h3>
+<h4 id="fec向前纠错">FEC(向前纠错)<a hidden class="anchor" aria-hidden="true" href="#fec向前纠错">#</a></h4>
+<h4 id="奇偶校验">奇偶校验<a hidden class="anchor" aria-hidden="true" href="#奇偶校验">#</a></h4>
+<h4 id="checksum检验和">checksum(检验和)<a hidden class="anchor" aria-hidden="true" href="#checksum检验和">#</a></h4>
+<h4 id="crc循环冗余检测">CRC(循环冗余检测)<a hidden class="anchor" aria-hidden="true" href="#crc循环冗余检测">#</a></h4>
+<h3 id="多路访问协议">多路访问协议<a hidden class="anchor" aria-hidden="true" href="#多路访问协议">#</a></h3>
+<h4 id="信道划分协议">信道划分协议<a hidden class="anchor" aria-hidden="true" href="#信道划分协议">#</a></h4>
+<h5 id="tdm时分多路复用">TDM(时分多路复用)<a hidden class="anchor" aria-hidden="true" href="#tdm时分多路复用">#</a></h5>
+<h5 id="fdm频分多路复用">FDM(频分多路复用)<a hidden class="anchor" aria-hidden="true" href="#fdm频分多路复用">#</a></h5>
+<h5 id="cdma码分多址">CDMA(码分多址)<a hidden class="anchor" aria-hidden="true" href="#cdma码分多址">#</a></h5>
+<h4 id="随机接入协议mac协议">随机接入协议(MAC协议)<a hidden class="anchor" aria-hidden="true" href="#随机接入协议mac协议">#</a></h4>
+<h5 id="aloha">ALOHA<a hidden class="anchor" aria-hidden="true" href="#aloha">#</a></h5>
+<h5 id="csmacsmacd">CSMA、CSMA/CD<a hidden class="anchor" aria-hidden="true" href="#csmacsmacd">#</a></h5>
+<h4 id="轮流协议">轮流协议<a hidden class="anchor" aria-hidden="true" href="#轮流协议">#</a></h4>
+<h5 id="轮询协议">轮询协议<a hidden class="anchor" aria-hidden="true" href="#轮询协议">#</a></h5>
+<h5 id="令牌传递协议">令牌传递协议<a hidden class="anchor" aria-hidden="true" href="#令牌传递协议">#</a></h5>
+<h3 id="交换局域网">交换局域网<a hidden class="anchor" aria-hidden="true" href="#交换局域网">#</a></h3>
+<h4 id="arp">ARP<a hidden class="anchor" aria-hidden="true" href="#arp">#</a></h4>
+<h5 id="mac地址局域网地址以太网地址物理地址">MAC地址(局域网地址、以太网地址、物理地址)<a hidden class="anchor" aria-hidden="true" href="#mac地址局域网地址以太网地址物理地址">#</a></h5>
+<h6 id="nic唯一标识符">NIC唯一标识符<a hidden class="anchor" aria-hidden="true" href="#nic唯一标识符">#</a></h6>
+<h4 id="ethernet以太网技术">Ethernet(以太网技术)<a hidden class="anchor" aria-hidden="true" href="#ethernet以太网技术">#</a></h4>
+<h5 id="10base-t100base-t1000base-t10gbase-t">10BASE-T、100BASE-T、1000BASE-T、10GBASE-T<a hidden class="anchor" aria-hidden="true" href="#10base-t100base-t1000base-t10gbase-t">#</a></h5>
+<h5 id="以太网帧使用crc校验">以太网帧、使用CRC校验<a hidden class="anchor" aria-hidden="true" href="#以太网帧使用crc校验">#</a></h5>
+<h4 id="链路层交换机即插即用设备">链路层交换机(即插即用设备)<a hidden class="anchor" aria-hidden="true" href="#链路层交换机即插即用设备">#</a></h4>
+<h5 id="过滤转发">过滤、转发<a hidden class="anchor" aria-hidden="true" href="#过滤转发">#</a></h5>
+<h5 id="自学习">自学习<a hidden class="anchor" aria-hidden="true" href="#自学习">#</a></h5>
+<h5 id="交换机毒化">交换机毒化<a hidden class="anchor" aria-hidden="true" href="#交换机毒化">#</a></h5>
+<h4 id="vlan虚拟局域网">VLAN(虚拟局域网)<a hidden class="anchor" aria-hidden="true" href="#vlan虚拟局域网">#</a></h4>
+<h3 id="链路虚拟化">链路虚拟化<a hidden class="anchor" aria-hidden="true" href="#链路虚拟化">#</a></h3>
+<h4 id="mpls多协议标签交换">MPLS(多协议标签交换)<a hidden class="anchor" aria-hidden="true" href="#mpls多协议标签交换">#</a></h4>
+<h5 id="vpn">VPN<a hidden class="anchor" aria-hidden="true" href="#vpn">#</a></h5>
+<h2 id="physical">Physical<a hidden class="anchor" aria-hidden="true" href="#physical">#</a></h2>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://amoxilinjn.github.io/blog/">My New Hugo Site</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
